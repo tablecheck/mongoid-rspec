@@ -9,6 +9,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 
+require 'logger'
 require 'mongoid'
 require 'rspec/core'
 require 'rspec/expectations'
