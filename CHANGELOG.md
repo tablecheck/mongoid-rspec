@@ -1,4 +1,6 @@
 ### 4.3.0 (Next)
+
+* [#247](https://github.com/mongoid/mongoid-rspec/pull/247): Migrate to danger-pr-comment workflow - [@dblock](https://github.com/dblock).
 * Your contribution here.
 
 ### 4.2.0 (06/04/2024)
