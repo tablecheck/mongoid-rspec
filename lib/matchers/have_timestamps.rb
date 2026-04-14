@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     def have_timestamps
@@ -6,7 +8,7 @@ module Mongoid
 
     class HaveTimestamps
       def initialize
-        @root_module = 'Mongoid::Timestamps'
+        @root_module = +'Mongoid::Timestamps'
       end
 
       def matches?(actual)
@@ -15,7 +17,7 @@ module Mongoid
       end
 
       def for(phase)
-        raise('You\'ve already declared timetamp\'s sub-module via "for" clause') if @submodule
+        raise('You\'ve already declared timestamp\'s sub-module via "for" clause') if @submodule
 
         case @phase = phase.to_sym
         when :creating then @submodule = 'Created'
@@ -33,7 +35,7 @@ module Mongoid
       end
 
       def description
-        desc = 'be a Mongoid document with'
+        desc = +'be a Mongoid document with'
         desc << ' shorted' if @shortened
         desc << " #{@phase}" if @phase
         desc << ' timestamps'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     def have_index_for(index_key)
@@ -15,7 +17,7 @@ module Mongoid
       end
 
       def failure_message
-        message = "Expected #{model.inspect} to #{description},"
+        message = +"Expected #{model.inspect} to #{description},"
         message << if actual_index.nil?
                      ' found no index'
                    else

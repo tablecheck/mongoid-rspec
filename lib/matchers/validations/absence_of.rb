@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Mongoid::Compatibility::Version.mongoid4_or_newer?
   module Mongoid
     module Matchers

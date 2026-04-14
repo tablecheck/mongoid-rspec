@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     class HaveField # :nodoc:
@@ -30,7 +32,7 @@ module Mongoid
         @errors = []
         @attributes.each do |attr|
           if @klass.fields.include?(attr)
-            error = ''
+            error = +''
             if @type && (@klass.fields[attr].type != @type)
               error << " of type #{@klass.fields[attr].type}"
             end
@@ -47,7 +49,7 @@ module Mongoid
               error << " with alias #{@klass.fields[attr].options[:as]}"
             end
 
-            @errors.push("field #{attr.inspect}" << error) unless error.blank?
+            @errors.push("field #{attr.inspect}#{error}") unless error.blank?
 
             if @localized
               unless @klass.fields[attr].localized?
@@ -74,7 +76,7 @@ module Mongoid
       alias failure_message_when_negated failure_message_for_should_not
 
       def description
-        desc = "have #{@attributes.size > 1 ? 'fields' : 'field'} named #{@attributes.collect(&:inspect).to_sentence}"
+        desc = +"have #{@attributes.size > 1 ? 'fields' : 'field'} named #{@attributes.collect(&:inspect).to_sentence}"
         desc << " of type #{@type.inspect}" if @type
         desc << " with alias #{@field_alias}" if @field_alias
         desc << " with default value of #{@default.inspect}" unless @default.nil?
