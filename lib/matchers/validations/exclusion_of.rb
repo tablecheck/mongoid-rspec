@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     module Validations
@@ -12,7 +14,7 @@ module Mongoid
         end
 
         def matches?(actual)
-          return false unless result = super(actual)
+          return false unless (result = super(actual))
 
           if @not_allowed_values
             raw_validator_not_allowed_values = @validator.options[:in]
@@ -24,9 +26,9 @@ module Mongoid
 
             allowed_values = @not_allowed_values - validator_not_allowed_values
             if allowed_values.empty?
-              @positive_result_message = @positive_result_message << ' not allowing all values mentioned'
+              @positive_result_message << ' not allowing all values mentioned'
             else
-              @negative_result_message = @negative_result_message << " allowing the following the ff. values: #{allowed_values.inspect}"
+              @negative_result_message << " allowing the following the ff. values: #{allowed_values.inspect}"
               result = false
             end
           end

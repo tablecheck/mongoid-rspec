@@ -113,13 +113,6 @@ Style/ExpandPathArguments:
     - 'Rakefile'
     - 'mongoid-rspec.gemspec'
 
-# Offense count: 50
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Offense count: 2
 # Configuration parameters: MinBodyLength, AllowConsecutiveConditionals.
 Style/GuardClause:

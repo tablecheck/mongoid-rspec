@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     def have_index_for(index_key)
@@ -36,7 +38,7 @@ module Mongoid
       alias failure_message_when_negated failure_message_for_should_not
 
       def description
-        desc = "have an index for #{index_key.inspect}"
+        desc = +"have an index for #{index_key.inspect}"
         desc << " with options of #{index_options.inspect}" if index_options
         desc
       end

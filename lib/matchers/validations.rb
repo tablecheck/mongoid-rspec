@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     module Validations
@@ -17,10 +19,10 @@ module Mongoid
           end
 
           if @validator
-            @negative_result_message = "#{@type.inspect} validator on #{@field.inspect}"
-            @positive_result_message = "#{@type.inspect} validator on #{@field.inspect}"
+            @negative_result_message = +"#{@type.inspect} validator on #{@field.inspect}"
+            @positive_result_message = +"#{@type.inspect} validator on #{@field.inspect}"
           else
-            @negative_result_message = "no #{@type.inspect} validator on #{@field.inspect}"
+            @negative_result_message = +"no #{@type.inspect} validator on #{@field.inspect}"
             return false
           end
           @result = true
@@ -41,10 +43,9 @@ module Mongoid
         alias failure_message_when_negated failure_message_for_should_not
 
         def description
-          desc = "have #{@type.inspect} validator on #{@field.inspect}"
+          desc = +"have #{@type.inspect} validator on #{@field.inspect}"
           desc << " on #{@options[:on]}" if @options[:on]
           desc << " with message #{@expected_message.inspect}" if @expected_message
-
           desc
         end
 
@@ -89,7 +90,7 @@ module Mongoid
           validator_on_methods = [@validator.options[:on]].flatten
 
           if validator_on_methods.any?
-            message = " on methods: #{validator_on_methods}"
+            message = +" on methods: #{validator_on_methods}"
 
             if on_options_covered_by?(@validator)
               @positive_result_message << message

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     def be_dynamic_document

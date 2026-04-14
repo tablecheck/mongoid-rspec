@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # this code is totally extracted from shoulda-matchers gem.
 module Mongoid
   module Matchers
