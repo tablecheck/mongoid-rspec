@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers # :nodoc:
     # Ensures that the model can accept nested attributes for the specified

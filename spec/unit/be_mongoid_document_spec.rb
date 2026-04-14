@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 if Mongoid::Compatibility::Version.mongoid4_or_newer?
   RSpec.describe Mongoid::Matchers::BeMongoidDocument do

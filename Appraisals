@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise 'mongoid-9' do
   gem 'mongoid', '~> 9.0.0'
 end

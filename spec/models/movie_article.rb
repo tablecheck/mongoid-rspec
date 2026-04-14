@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MovieArticle < Article
   field :rating, type: Float
   field :classification, type: Integer

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Mongoid::Compatibility::Version.mongoid7_or_newer?
   require 'mongoid/association'
 else
@@ -30,7 +32,7 @@ module Mongoid
           @association = {}
           @association[:name] = name.to_s
           @association[:type] = association_type
-          @expectation_message = "#{type_description} #{@association[:name].inspect}"
+          @expectation_message = +"#{type_description} #{@association[:name].inspect}"
           @expectation_message << " of type #{@association[:class].inspect}" unless @association[:class].nil?
         end
 
@@ -318,19 +320,19 @@ module Mongoid
           type ||= @association[:type]
           case type.name
           when EMBEDS_ONE.name
-            (passive ? 'embed' : 'embeds') << ' one'
+            +(passive ? 'embed' : 'embeds') << ' one'
           when EMBEDS_MANY.name
-            (passive ? 'embed' : 'embeds') << ' many'
+            +(passive ? 'embed' : 'embeds') << ' many'
           when EMBEDDED_IN.name
-            (passive ? 'be' : 'is') << ' embedded in'
+            +(passive ? 'be' : 'is') << ' embedded in'
           when HAS_ONE.name
-            (passive ? 'reference' : 'references') << ' one'
+            +(passive ? 'reference' : 'references') << ' one'
           when HAS_MANY.name
-            (passive ? 'reference' : 'references') << ' many'
+            +(passive ? 'reference' : 'references') << ' many'
           when HAS_AND_BELONGS_TO_MANY.name
-            (passive ? 'reference' : 'references') << ' and referenced in many'
+            +(passive ? 'reference' : 'references') << ' and referenced in many'
           when BELONGS_TO.name
-            (passive ? 'be referenced in' : 'referenced in')
+            +(passive ? 'be referenced in' : 'referenced in')
           else
             raise format("Unknown association type '%s'", type)
           end

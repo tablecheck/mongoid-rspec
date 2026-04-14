@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mongoid
   module Matchers
     module Validations
@@ -19,9 +21,9 @@ module Mongoid
         end
 
         def description
-          options_desc = []
+          options_desc = +"validate field #{@field.inspect}"
           options_desc << " with custom validator #{@custom_validator.name}" if @validator
-          "validate field #{@field.inspect}" << options_desc.to_sentence
+          options_desc
         end
 
         private
